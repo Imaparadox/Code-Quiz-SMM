@@ -42,6 +42,7 @@ var questionEl = document.querySelector("#question");
 var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
+var container = document.querySelector(".container");
 // var startButton = document.querySelector(".startBtn");
 
 var questionIndex = 0;
@@ -52,38 +53,45 @@ var intervalId;
 
 //WHEN I click the start button
 //THEN a timer starts and I am presented with a question
-startButton.addEventListener("click", startGame);
-
 function startGame() {
- //Create start button 
- 
- 
- //create class name
+  //Start button container
+  var startButtonContainer = document.createElement("div");
+  startButtonContainer.className = "start-btn-container";
+  container.appendChild(startButtonContainer);
+  //Create start button 
+  startButton = document.createElement("button");
+  startButton.textContent = "Start";
+  startButton.className = "start-btn";
+  startButtonContainer.appendChild(startButton);
 
- //set attribute
+  container.append(startButtonContainer);
 
+  //Event Listeners for click
+  startButton.addEventListener("click", renderQuestion);
+  startButton.addEventListener("click", clearFunction);
+};
 
+function clearFunction() {
+  startButton.remove();
+};
 
-  
-}
-
-
+// Clears the terminal when the 
 function endQuiz() {
   clearInterval(intervalId);
   var body = document.body;
   body.innerHTML = "Game over, You scored " + correctCount;
-}
+};
 
+//
 function updateTime() {
   time--;
   timerEl.textContent = time;
   if (time <= 0) {
     endQuiz();
   }
-}
+};
 
 function renderQuestion() {
-
   if (time == 0) {
     updateTime();
     return;
@@ -104,7 +112,7 @@ function renderQuestion() {
     questionListItem.textContent = choices[i];
     optionListEl.append(questionListItem);
   }
-}
+};
 
 function nextQuestion() {
   questionIndex++;
@@ -113,7 +121,7 @@ function nextQuestion() {
   }
   renderQuestion();
 }
-
+;
 function checkAnswer(event) {
   clearInterval(intervalId);
   if (event.target.matches("li")) {
@@ -130,5 +138,6 @@ function checkAnswer(event) {
   setTimeout(nextQuestion, 2000);
 }
 
-renderQuestion();
 optionListEl.addEventListener("click", checkAnswer);
+
+startGame();
