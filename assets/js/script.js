@@ -40,6 +40,7 @@ var correctCount = 0;
 var time = 70;
 var intervalId;
 
+//Start game function 
 function startGame() {
   //Paragraph container
   var startContainer = document.createElement("div");
@@ -77,12 +78,31 @@ function endQuiz() {
   clearInterval(intervalId);
   var body = document.body;
   body.innerHTML = "Game over, You scored " + correctCount;
+
+  //Local Storage for high scores
+  //Input field for their name
+  var inputFieldContainer = document.createElement("div");
+  inputField.className = "input-container";
+  //Button for clearing high scores 
+  var
+
+  //Local Storage for high scores
+  var storage = localStorage.getItem("");
+  storage = JSON.parse(storage) || [];
+  storage.push(correctCount);
+  var stringifiedCities = JSON.stringify(storage);
+  localStorage.setItem("cities", stringifiedCities);
 };
 
-//Local Storage for high scores
-function highScore() {
+// //Local Storage for high scores
+// function highScore() {
+//   //Input field for their name
+//   var inputFieldContainer = document.createElement("div")
 
-};
+//   //Button for clearing high scores 
+//   var
+
+// };
 //Timer counts down until it reaches zero
 function updateTime() {
   time--;
