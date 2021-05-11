@@ -26,24 +26,11 @@ var questions = [
   }
 ];
 
-//GIVEN I am taking a code quiz
-//WHEN I click the start button
-//THEN a timer starts and I am presented with a question
-//WHEN I answer a question
-//THEN I am presented with another question
-//WHEN I answer a question incorrectly
-//THEN time is subtracted from the clock
-//WHEN all questions are answered or the timer reaches 0
-//THEN the game is over
-//WHEN the game is over
-//THEN I can save my initials and score
-
 var questionEl = document.querySelector("#question");
 var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
 var container = document.querySelector(".container");
-// var startButton = document.querySelector(".startBtn");
 
 var questionIndex = 0;
 var correctCount = 0;
@@ -51,20 +38,17 @@ var correctCount = 0;
 var time = 70;
 var intervalId;
 
-//WHEN I click the start button
-//THEN a timer starts and I am presented with a question
+
 function startGame() {
-  //Container
+  //Paragraph container
   var startContainer = document.createElement("div");
   startContainer.className = "paragraph-container";
   container.appendChild(startContainer);
-
-  //Paragraph Container
+  //Paragraph 
   startParagraph = document.createElement("p");
   startParagraph.textContent = "To start the Code Quiz, please click the start button bellow! Time will be deducted for incorrect answers";
   startParagraph.className = "paragraph";
   startContainer.appendChild(startParagraph);
-
   //Start button container
   var startButtonContainer = document.createElement("div");
   startButtonContainer.className = "start-btn-container";
@@ -74,26 +58,30 @@ function startGame() {
   startButton.textContent = "Start";
   startButton.className = "start-btn";
   startButtonContainer.appendChild(startButton);
-
   //Append start button to container
   container.append(startButtonContainer);
-  //Event Listeners for click
+  //Start button click event listener
   startButton.addEventListener("click", renderQuestion);
   startButton.addEventListener("click", clearFunction);
 };
 
+//Clears the browser when user starts the game
 function clearFunction() {
   startButton.remove();
   startParagraph.remove();
 };
 
-// Clears the terminal when the 
+// Clears the browser and brings up the high score screen
 function endQuiz() {
   clearInterval(intervalId);
   var body = document.body;
   body.innerHTML = "Game over, You scored " + correctCount;
 };
 
+//Local Storage for high scores
+function highScore() {
+
+};
 //
 function updateTime() {
   time--;
@@ -109,7 +97,6 @@ function renderQuestion() {
     updateTime();
     return;
   };
-  //Make timer h2 element
   document.getElementById('timer-title').textContent = "Time Left:";
 
 
@@ -130,14 +117,16 @@ function renderQuestion() {
   }
 };
 
+//Moves on to the next question
 function nextQuestion() {
   questionIndex++;
   if (questionIndex === questions.length) {
     time = 0;
   }
   renderQuestion();
-}
-;
+};
+
+//Checks answer and clears interval to cycle through the questions
 function checkAnswer(event) {
   clearInterval(intervalId);
   if (event.target.matches("li")) {
@@ -149,11 +138,22 @@ function checkAnswer(event) {
       questionResultEl.textContent = "Incorrect";
       time = time - 5;
       timerEl.textContent = time;
-    }
-  }
+    };
+  };
   setTimeout(nextQuestion, 2000);
-}
+};
 
 optionListEl.addEventListener("click", checkAnswer);
 
 startGame();
+
+
+// let heyImFromLocalStorage = localStorage.getItem("item");
+// heyImFromLocalStorage = JSON.parse(heyImFromLocalStorage) || [];
+// for (var i = 0; i < heyImFromLocalStorage; i++) { whatever you want here(heyImFromLocalStorage[i]); }
+
+let heyImFromLocalStorage = localStorage.getItem("cities");
+heyImFromLocalStorage = JSON.parse(heyImFromLocalStorage) || [];
+heyImFromLocalStorage.push(city);
+let stringifiedCities = JSON.stringify(heyImFromLocalStorage);
+localStorage.setItem("cities", stringifiedCities);
