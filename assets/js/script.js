@@ -1,3 +1,4 @@
+//Questions and Answers
 var questions = [
   {
     question: "What is the most popular coding language today?",
@@ -26,6 +27,7 @@ var questions = [
   }
 ];
 
+//Global Variables
 var questionEl = document.querySelector("#question");
 var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
@@ -37,7 +39,6 @@ var correctCount = 0;
 
 var time = 70;
 var intervalId;
-
 
 function startGame() {
   //Paragraph container
@@ -82,7 +83,7 @@ function endQuiz() {
 function highScore() {
 
 };
-//
+//Timer counts down until it reaches zero
 function updateTime() {
   time--;
   timerEl.textContent = time;
@@ -91,25 +92,19 @@ function updateTime() {
   }
 };
 
+//Function that renders the questions to the browser
 function renderQuestion() {
-  //if time is equal to 0 updateTime() and return
   if (time == 0) {
     updateTime();
     return;
   };
   document.getElementById('timer-title').textContent = "Time Left:";
-
-
   intervalId = setInterval(updateTime, 1000);
-
   questionEl.textContent = questions[questionIndex].question;
-
   optionListEl.innerHTML = "";
   questionResultEl.innerHTML = "";
-
   var choices = questions[questionIndex].choices;
   var choicesLenth = choices.length;
-
   for (var i = 0; i < choicesLenth; i++) {
     var questionListItem = document.createElement("li");
     questionListItem.textContent = choices[i];
