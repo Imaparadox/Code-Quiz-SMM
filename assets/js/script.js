@@ -48,12 +48,23 @@ var container = document.querySelector(".container");
 var questionIndex = 0;
 var correctCount = 0;
 
-var time = 20;
+var time = 70;
 var intervalId;
 
 //WHEN I click the start button
 //THEN a timer starts and I am presented with a question
 function startGame() {
+  //Container
+  var startContainer = document.createElement("div");
+  startContainer.className = "paragraph-container";
+  container.appendChild(startContainer);
+
+  //Paragraph Container
+  startParagraph = document.createElement("p");
+  startParagraph.textContent = "To start the Code Quiz, please click the start button bellow! Time will be deducted for incorrect answers";
+  startParagraph.className = "paragraph";
+  startContainer.appendChild(startParagraph);
+
   //Start button container
   var startButtonContainer = document.createElement("div");
   startButtonContainer.className = "start-btn-container";
@@ -64,8 +75,8 @@ function startGame() {
   startButton.className = "start-btn";
   startButtonContainer.appendChild(startButton);
 
+  //Append start button to container
   container.append(startButtonContainer);
-
   //Event Listeners for click
   startButton.addEventListener("click", renderQuestion);
   startButton.addEventListener("click", clearFunction);
@@ -73,6 +84,7 @@ function startGame() {
 
 function clearFunction() {
   startButton.remove();
+  startParagraph.remove();
 };
 
 // Clears the terminal when the 
@@ -92,10 +104,14 @@ function updateTime() {
 };
 
 function renderQuestion() {
+  //if time is equal to 0 updateTime() and return
   if (time == 0) {
     updateTime();
     return;
-  }
+  };
+  //Make timer h2 element
+  document.getElementById('timer-title').textContent = "Time Left:";
+
 
   intervalId = setInterval(updateTime, 1000);
 
@@ -131,7 +147,7 @@ function checkAnswer(event) {
       correctCount++;
     } else {
       questionResultEl.textContent = "Incorrect";
-      time = time - 2;
+      time = time - 5;
       timerEl.textContent = time;
     }
   }
