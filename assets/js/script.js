@@ -93,39 +93,6 @@ function endQuiz() {
   endScreenElement.removeAttribute("class");
 
   highScoreResult.textContent = correctCount;
-
-
-  //Title for user to enter initials
-  // var userNameTitle = document.createElement("h2");
-  // userNameTitle.textContent = "Enter Your Initials!";
-  // userNameTitle.className = "user-name-title";
-  // container.appendChild(userNameTitle);
-  // //Input field for their name
-  // var inputField = document.createElement("input");
-  // inputField.classList.add("input");
-  // inputField.setAttribute("type", "text");
-  // container.appendChild(inputField);
-  // //Button for Entering name 
-  // var buttonScore = document.createElement("button");
-  // buttonScore.textContent = "Enter";
-  // buttonScore.className = "button-score";
-  // container.appendChild(buttonScore);
-
-  //high score title
-  // highScoreTitle = document.createElement("h2");
-  // highScoreTitle.textContent = "High Scores:";
-  // highScoreTitle.className = "high-score-title";
-  // container.appendChild(highScoreTitle);
-
-  // var body = document.body;
-  // body.innerHTML = "Game over, You scored " + correctCount;
-
-  //Local Storage for high scores
-  // var storage = localStorage.getItem("");
-  // storage = JSON.parse(storage) || [];
-  // storage.push(correctCount);
-  // var stringifiedCities = JSON.stringify(storage);
-  // localStorage.setItem("score", stringifiedCities);
 };
 
 function saveHighScores() {
