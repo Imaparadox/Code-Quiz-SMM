@@ -41,7 +41,7 @@ var highScoreBtn = document.querySelector(".button-score");
 var questionIndex = 0;
 var correctCount = 0;
 
-var time = 10;
+var time = 60;
 var intervalId;
 
 //Start game function 
@@ -89,7 +89,6 @@ function endQuiz() {
   emptyStrings();
 
   var endScreenElement = document.getElementById("end-game");
-  console.log(endScreenElement);
   endScreenElement.removeAttribute("class");
 
   highScoreResult.textContent = correctCount;
@@ -157,10 +156,10 @@ function checkAnswer(event) {
   if (event.target.matches("li")) {
     var answer = event.target.textContent;
     if (answer === questions[questionIndex].answer) {
-      questionResultEl.textContent = "Correct";
+      questionResultEl.textContent = "Correct!";
       correctCount++;
     } else {
-      questionResultEl.textContent = "Incorrect";
+      questionResultEl.textContent = "Incorrect!";
       time = time - 10;
       timerEl.textContent = time;
     };
