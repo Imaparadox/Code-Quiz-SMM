@@ -52,10 +52,6 @@ function startGame() {
   startParagraph.textContent = "To start the Code Quiz, please click the start button bellow! Time will be deducted for incorrect answers.";
   startParagraph.className = "paragraph";
   startContainer.appendChild(startParagraph);
-  //Start button container
-  // var startButtonContainer = document.createElement("div");
-  // startButtonContainer.className = "start-btn-container";
-  // container.appendChild(startButtonContainer);
   //Create start button 
   startButton = document.createElement("button");
   startButton.textContent = "Start";
@@ -68,7 +64,7 @@ function startGame() {
   startButton.addEventListener("click", clearFunction);
 };
 
-//Clears the browser when user starts the game
+//Clears the browser as the user starts the game
 function clearFunction() {
   startButton.remove();
   startParagraph.remove();
@@ -88,15 +84,12 @@ function emptyStrings() {
 function endQuiz() {
   clearInterval(intervalId);
   emptyStrings();
-  // var body = document.body;
-  // body.innerHTML = "Game over, You scored " + correctCount;
 
-  //Title for High Scores
+  //Title for user to enter initials
   userNameTitle = document.createElement("h2");
   userNameTitle.textContent = "Enter Your Initials!";
   userNameTitle.className = "user-name-title";
   container.appendChild(userNameTitle);
-
   //Input field for their name
   inputField = document.createElement("input");
   inputField.classList.add("input");
@@ -108,6 +101,14 @@ function endQuiz() {
   buttonScore.className = "button-score";
   container.appendChild(buttonScore);
 
+  //high score title
+  // highScoreTitle = document.createElement("h2");
+  // highScoreTitle.textContent = "High Scores:";
+  // highScoreTitle.className = "high-score-title";
+  // container.appendChild(highScoreTitle);
+
+  // var body = document.body;
+  // body.innerHTML = "Game over, You scored " + correctCount;
 
   //Local Storage for high scores
   // var storage = localStorage.getItem("");
@@ -188,8 +189,3 @@ startGame();
 // heyImFromLocalStorage.push(city);
 // let stringifiedCities = JSON.stringify(heyImFromLocalStorage);
 // localStorage.setItem("cities", stringifiedCities);
-
-var darkside = {
-  strength: 100,
-  type: "New God"
-}
