@@ -34,11 +34,14 @@ var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
 var container = document.querySelector(".container");
 var timerTitle = document.querySelector("#timer-title");
+var userInitials = document.querySelector("#initials");
+var highScoreResult = document.querySelector("#high-score-number");
+var highScoreBtn = document.querySelector(".button-score");
 
 var questionIndex = 0;
 var correctCount = 0;
 
-var time = 70;
+var time = 10;
 var intervalId;
 
 //Start game function 
@@ -85,21 +88,28 @@ function endQuiz() {
   clearInterval(intervalId);
   emptyStrings();
 
+  var endScreenElement = document.getElementById("end-game");
+  console.log(endScreenElement);
+  endScreenElement.removeAttribute("class");
+
+  highScoreResult.textContent = correctCount;
+
+
   //Title for user to enter initials
-  userNameTitle = document.createElement("h2");
-  userNameTitle.textContent = "Enter Your Initials!";
-  userNameTitle.className = "user-name-title";
-  container.appendChild(userNameTitle);
-  //Input field for their name
-  inputField = document.createElement("input");
-  inputField.classList.add("input");
-  inputField.setAttribute("type", "text");
-  container.appendChild(inputField);
-  //Button for Entering name 
-  buttonScore = document.createElement("button");
-  buttonScore.textContent = "Enter";
-  buttonScore.className = "button-score";
-  container.appendChild(buttonScore);
+  // var userNameTitle = document.createElement("h2");
+  // userNameTitle.textContent = "Enter Your Initials!";
+  // userNameTitle.className = "user-name-title";
+  // container.appendChild(userNameTitle);
+  // //Input field for their name
+  // var inputField = document.createElement("input");
+  // inputField.classList.add("input");
+  // inputField.setAttribute("type", "text");
+  // container.appendChild(inputField);
+  // //Button for Entering name 
+  // var buttonScore = document.createElement("button");
+  // buttonScore.textContent = "Enter";
+  // buttonScore.className = "button-score";
+  // container.appendChild(buttonScore);
 
   //high score title
   // highScoreTitle = document.createElement("h2");
@@ -115,8 +125,24 @@ function endQuiz() {
   // storage = JSON.parse(storage) || [];
   // storage.push(correctCount);
   // var stringifiedCities = JSON.stringify(storage);
-  // localStorage.setItem("cities", stringifiedCities);
+  // localStorage.setItem("score", stringifiedCities);
 };
+
+function saveHighScores() {
+  var initials = userInitials.value.trim();
+  if (initials !== "") {
+    var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
+    var newScoreObj = {
+      score: correctCount,
+      initials: initials
+    }
+    highScores.push(newScoreObj);
+    localStorage.setItem("highscores", JSON.stringify(highScores));
+  };
+  // window.location.href="highscores.html";
+};
+
+highScoreBtn.onclick = saveHighScores;
 
 //Timer counts down until it reaches zero
 function updateTime() {
@@ -179,13 +205,6 @@ optionListEl.addEventListener("click", checkAnswer);
 
 startGame();
 
-
-// let heyImFromLocalStorage = localStorage.getItem("item");
-// heyImFromLocalStorage = JSON.parse(heyImFromLocalStorage) || [];
-// for (var i = 0; i < heyImFromLocalStorage; i++) { whatever you want here(heyImFromLocalStorage[i]); }
-
-// let heyImFromLocalStorage = localStorage.getItem("cities");
-// heyImFromLocalStorage = JSON.parse(heyImFromLocalStorage) || [];
-// heyImFromLocalStorage.push(city);
-// let stringifiedCities = JSON.stringify(heyImFromLocalStorage);
-// localStorage.setItem("cities", stringifiedCities);
+// get high scores
+// sort high scores
+// for each loop over each score
