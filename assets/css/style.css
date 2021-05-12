@@ -32,7 +32,7 @@ header h1 {
 
 .container {
     width: 70%;
-    margin: 0 auto;
+    margin: 30px auto;
     display: flex;
     flex-wrap: column;
     justify-content: space-between;
@@ -40,27 +40,37 @@ header h1 {
 
 }
 
-.timer-title{
-    font-size: 30px;
-
+.paragraph-container {
+    margin: 0 auto;
+    text-align: center;
 }
 
-#timer {
-
+.paragraph {
+    font-size: 17px;
+    padding: 10px 5px;
 }
+
 
 .start-btn {
     background-color: purple;
+    padding: 10px;
     font-size: 30px;
     color: white;
     border-radius: 15px;
-    
+    margin: 0 auto;
 }
 
 .start-btn:hover {
     background: #cc00ff;
     color: white;
-    border-radius: 25px;
+}
+
+.timer-title{
+    font-size: 30px;
+}
+
+#timer {
+
 }
 
 .question {
