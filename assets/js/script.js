@@ -48,20 +48,20 @@ function startGame() {
   container.appendChild(startContainer);
   //Paragraph 
   startParagraph = document.createElement("p");
-  startParagraph.textContent = "To start the Code Quiz, please click the start button bellow! Time will be deducted for incorrect answers";
+  startParagraph.textContent = "To start the Code Quiz, please click the start button bellow! Time will be deducted for incorrect answers.";
   startParagraph.className = "paragraph";
   startContainer.appendChild(startParagraph);
   //Start button container
-  var startButtonContainer = document.createElement("div");
-  startButtonContainer.className = "start-btn-container";
-  container.appendChild(startButtonContainer);
+  // var startButtonContainer = document.createElement("div");
+  // startButtonContainer.className = "start-btn-container";
+  // container.appendChild(startButtonContainer);
   //Create start button 
   startButton = document.createElement("button");
   startButton.textContent = "Start";
   startButton.className = "start-btn";
-  startButtonContainer.appendChild(startButton);
+  startContainer.appendChild(startButton);
   //Append start button to container
-  container.append(startButtonContainer);
+  container.append(startContainer);
   //Start button click event listener
   startButton.addEventListener("click", renderQuestion);
   startButton.addEventListener("click", clearFunction);
@@ -84,25 +84,15 @@ function endQuiz() {
   var inputFieldContainer = document.createElement("div");
   inputField.className = "input-container";
   //Button for clearing high scores 
-  var
 
   //Local Storage for high scores
-  var storage = localStorage.getItem("");
-  storage = JSON.parse(storage) || [];
-  storage.push(correctCount);
-  var stringifiedCities = JSON.stringify(storage);
-  localStorage.setItem("cities", stringifiedCities);
+  // var storage = localStorage.getItem("");
+  // storage = JSON.parse(storage) || [];
+  // storage.push(correctCount);
+  // var stringifiedCities = JSON.stringify(storage);
+  // localStorage.setItem("cities", stringifiedCities);
 };
 
-// //Local Storage for high scores
-// function highScore() {
-//   //Input field for their name
-//   var inputFieldContainer = document.createElement("div")
-
-//   //Button for clearing high scores 
-//   var
-
-// };
 //Timer counts down until it reaches zero
 function updateTime() {
   time--;
@@ -124,9 +114,11 @@ function renderQuestion() {
   optionListEl.innerHTML = "";
   questionResultEl.innerHTML = "";
   var choices = questions[questionIndex].choices;
-  var choicesLenth = choices.length;
-  for (var i = 0; i < choicesLenth; i++) {
+  var choicesLength = choices.length;
+  
+  for (var i = 0; i < choicesLength; i++) {
     var questionListItem = document.createElement("li");
+    questionListItem.className = "question-options";
     questionListItem.textContent = choices[i];
     optionListEl.append(questionListItem);
   }
@@ -151,7 +143,7 @@ function checkAnswer(event) {
       correctCount++;
     } else {
       questionResultEl.textContent = "Incorrect";
-      time = time - 5;
+      time = time - 10;
       timerEl.textContent = time;
     };
   };
@@ -167,8 +159,8 @@ startGame();
 // heyImFromLocalStorage = JSON.parse(heyImFromLocalStorage) || [];
 // for (var i = 0; i < heyImFromLocalStorage; i++) { whatever you want here(heyImFromLocalStorage[i]); }
 
-let heyImFromLocalStorage = localStorage.getItem("cities");
-heyImFromLocalStorage = JSON.parse(heyImFromLocalStorage) || [];
-heyImFromLocalStorage.push(city);
-let stringifiedCities = JSON.stringify(heyImFromLocalStorage);
-localStorage.setItem("cities", stringifiedCities);
+// let heyImFromLocalStorage = localStorage.getItem("cities");
+// heyImFromLocalStorage = JSON.parse(heyImFromLocalStorage) || [];
+// heyImFromLocalStorage.push(city);
+// let stringifiedCities = JSON.stringify(heyImFromLocalStorage);
+// localStorage.setItem("cities", stringifiedCities);

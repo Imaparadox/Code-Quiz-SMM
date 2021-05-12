@@ -27,6 +27,7 @@ header h1 {
     text-align: center;
     margin: 0 auto;
     font-size: 50px;
+    color: white;
 }
 
 .container {
@@ -39,11 +40,48 @@ header h1 {
 
 }
 
-.start-btn {
-    color: red;
+.timer-title{
+    font-size: 30px;
+
 }
 
 #timer {
+
+}
+
+.start-btn {
+    background-color: purple;
+    font-size: 30px;
+    color: white;
+    border-radius: 15px;
+    
+}
+
+.start-btn:hover {
+    background: #cc00ff;
+    color: white;
+    border-radius: 25px;
+}
+
+.question {
+
+}
+
+.question-options {
+    background-color: purple;
+    font-size: 20px;
+    color: white;
+    border-radius: 20px;
+}
+
+.question-options:hover {
+    background: #cc00ff;
+    color: white;
+    border-radius: 20px;
+}
+
+
+.question-result {
 
 }
 
