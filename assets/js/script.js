@@ -33,6 +33,7 @@ var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
 var container = document.querySelector(".container");
+var timerTitle = document.querySelector("#timer-title");
 
 var questionIndex = 0;
 var correctCount = 0;
@@ -73,17 +74,40 @@ function clearFunction() {
   startParagraph.remove();
 };
 
+//Clears after game is finished
+function emptyStrings() {
+  questionEl.textContent = "";
+  optionListEl.textContent = "";
+  questionResultEl.textContent = "";
+  timerEl.textContent = "";
+  timerTitle.textContent = "";
+  return;
+}
+
 // Clears the browser and brings up the high score screen
 function endQuiz() {
   clearInterval(intervalId);
-  var body = document.body;
-  body.innerHTML = "Game over, You scored " + correctCount;
+  emptyStrings();
+  // var body = document.body;
+  // body.innerHTML = "Game over, You scored " + correctCount;
 
-  //Local Storage for high scores
+  //Title for High Scores
+  userNameTitle = document.createElement("h2");
+  userNameTitle.textContent = "Enter Your Initials!";
+  userNameTitle.className = "user-name-title";
+  container.appendChild(userNameTitle);
+
   //Input field for their name
-  var inputFieldContainer = document.createElement("div");
-  inputField.className = "input-container";
-  //Button for clearing high scores 
+  inputField = document.createElement("input");
+  inputField.classList.add("input");
+  inputField.setAttribute("type", "text");
+  container.appendChild(inputField);
+  //Button for Entering name 
+  buttonScore = document.createElement("button");
+  buttonScore.textContent = "Enter";
+  buttonScore.className = "button-score";
+  container.appendChild(buttonScore);
+
 
   //Local Storage for high scores
   // var storage = localStorage.getItem("");
@@ -115,7 +139,7 @@ function renderQuestion() {
   questionResultEl.innerHTML = "";
   var choices = questions[questionIndex].choices;
   var choicesLength = choices.length;
-  
+
   for (var i = 0; i < choicesLength; i++) {
     var questionListItem = document.createElement("li");
     questionListItem.className = "question-options";
@@ -164,3 +188,8 @@ startGame();
 // heyImFromLocalStorage.push(city);
 // let stringifiedCities = JSON.stringify(heyImFromLocalStorage);
 // localStorage.setItem("cities", stringifiedCities);
+
+var darkside = {
+  strength: 100,
+  type: "New God"
+}
