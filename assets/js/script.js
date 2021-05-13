@@ -35,7 +35,7 @@ var timerEl = document.querySelector("#timer");
 var container = document.querySelector(".container");
 var timerTitle = document.querySelector("#timer-title");
 var userInitials = document.querySelector("#initials");
-var highScoreResult = document.querySelector("#high-score-number");
+var highScoreResult = document.querySelector("#score-number");
 var highScoreBtn = document.querySelector(".button-score");
 
 var questionIndex = 0;
