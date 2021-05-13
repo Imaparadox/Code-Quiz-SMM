@@ -31,7 +31,7 @@ header h1 {
 }
 
 .container {
-    width: 70%;
+    width: 50%;
     margin: 30px auto;
     display: flex;
     flex-wrap: column;
@@ -68,7 +68,7 @@ header h1 {
 #timer {
     font-size: 20px;
     font-weight: bold;
-    padding: 5px;
+    padding: 25px;
 }
 
 #timer-title{
@@ -103,14 +103,24 @@ header h1 {
 }
 
 /* Come back to this one */
-#question-result {
+/* #question-result {
     background-color: purple;
-    /* padding: 10px;  */
     font-size: 25px;
     color: white;
     border-radius: 15px;
     margin: 0 auto;
-    /* border: black solid;  */
+    border: black solid; 
+    padding: 10px;
+} */
+
+.correct {
+    background-color: purple;
+    font-size: 25px;
+    color: white;
+    border-radius: 15px;
+    margin: 0 auto;
+    /* border: black solid; 
+    padding: 10px; */
 }
 
 #end-game {
@@ -144,7 +154,7 @@ header h1 {
     margin: 0 auto;
 }
 
-.button-score {
+.button-score, .button-high-scores{
     background-color: purple;
     padding: 10px 10px;
     font-size: 20px;
@@ -154,7 +164,7 @@ header h1 {
     width: 100%;
 }
 
-.button-score:hover {
+.button-score:hover, .button-high-scores:hover {
     background: #cc00ff;
     color: white;
 }

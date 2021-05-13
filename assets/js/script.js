@@ -21,7 +21,7 @@ var questions = [
     answer: "vet",
   },
   {
-    question: "who invented Javascript?",
+    question: "Who invented Javascript?",
     choices: ["Brendan Eich", "Bill Gates", "Van Rossum", "Steve Jobs"],
     answer: "Brendan Eich",
   }
@@ -125,6 +125,7 @@ function renderQuestion() {
     updateTime();
     return;
   };
+  //questionResultEl.removeAttribute("class");
   document.getElementById('timer-title').textContent = "Time Left:";
   intervalId = setInterval(updateTime, 1000);
   questionEl.textContent = questions[questionIndex].question;
@@ -139,6 +140,7 @@ function renderQuestion() {
     questionListItem.textContent = choices[i];
     optionListEl.append(questionListItem);
   }
+
 };
 
 //Moves on to the next question
@@ -156,6 +158,9 @@ function checkAnswer(event) {
   if (event.target.matches("li")) {
     var answer = event.target.textContent;
     if (answer === questions[questionIndex].answer) {
+      // questionResultEl.setAttribute("id", "correct")
+      // questionResultEl.removeAttribute()
+      // questionResultEL.document.getElementById("correct").style.color = "green"
       questionResultEl.textContent = "Correct!";
       correctCount++;
     } else {
@@ -164,6 +169,9 @@ function checkAnswer(event) {
       timerEl.textContent = time;
     };
   };
+  // var endScreenElement = document.getElementById("end-game");
+  // endScreenElement.removeAttribute("class");
+
   setTimeout(nextQuestion, 2000);
 };
 
