@@ -1,0 +1,1 @@
+var highScoreList = document.querySelector("#high-score-list");

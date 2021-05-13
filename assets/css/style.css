@@ -154,7 +154,7 @@ header h1 {
     margin: 0 auto;
 }
 
-.button-score, .button-high-scores{
+.button-score {
     background-color: purple;
     padding: 10px 10px;
     font-size: 20px;
@@ -164,9 +164,20 @@ header h1 {
     width: 100%;
 }
 
-.button-score:hover, .button-high-scores:hover {
+.button-score:hover, .high-scores-link:hover {
     background: #cc00ff;
     color: white;
+}
+
+.high-scores-link {
+    text-decoration: none;
+    background-color: purple;
+    padding: 10px 10px;
+    font-size: 20px;
+    color: white;
+    border-radius: 15px;
+    margin: 20px auto;
+    width: 100%;
 }
 
 .hide {

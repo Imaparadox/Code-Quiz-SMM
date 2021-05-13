@@ -41,7 +41,8 @@ var highScoreBtn = document.querySelector(".button-score");
 var questionIndex = 0;
 var correctCount = 0;
 
-var time = 60;
+//Change back to 60
+var time = 0;
 var intervalId;
 
 //Start game function 
