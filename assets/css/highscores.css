@@ -38,20 +38,20 @@ header h1 {
     align-items: center;
 }
 
-#high-score-list {
-    
-}
+/* #high-score-list {
+
+} */
 
 #go-back, #clear {
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     margin: 0 auto;
 }
 
 #go-back-link {
     text-decoration: none;
     background-color: purple;
-    padding: 10px 10px;
+    padding: 22px;
     font-size: 20px;
     color: white;
     border-radius: 15px;
@@ -67,4 +67,9 @@ header h1 {
     border-radius: 15px;
     margin: 0 auto;
     width: 65%;
+}
+
+#go-back-link:hover, #clear-score:hover {
+    background: #cc00ff;
+    color: white;
 }
