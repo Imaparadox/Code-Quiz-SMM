@@ -9,25 +9,23 @@ This project is a homework assignment for Rutgers Coding Bootcamp.
 ## Description 
 Click the start button to begin the quiz. Once the game starts a timer will countdown from 75 seconds and the first question will appear. Select an answer to continue to the next question. Bear in mind that wrong answers will subtract 10 seconds from the timer. When all questions are answered or the timer reaches 0, the game is over. The user can then click the "High Scores" button to enter their initials and save their score. 
 
-![ScreenShot](assets/images/main-page.png "ScreenShot")
+## Full Browser
+![ScreenShot](assets/images/full-screen-1-code-quiz.png "ScreenShot")
+
+## Quiz Questions
+![ScreenShot](assets/images/questions-code-quiz.png "ScreenShot")
+
+## Score Results 
+![ScreenShot](assets/images/score-results-code-quiz.png "ScreenShot")
+
+## High Scores
+![ScreenShot](assets/images/highscores-page-code-quiz.png "ScreenShot")
 
 ## Notes
-N/A
+I wasn't able to figure out the javascript logic for the high scores page. I plan on updating it at a future date.
 
 ## Licenses
 N/A
 
 ## Acknowledgments for advice and assistance:
 N/A
-
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
