@@ -105,7 +105,6 @@ function saveHighScores() {
     highScores.push(newScoreObj);
     localStorage.setItem("highscores", JSON.stringify(highScores));
   };
-  // window.location.href="highscores.html";
 };
 
 highScoreBtn.onclick = saveHighScores;
@@ -125,7 +124,7 @@ function renderQuestion() {
     updateTime();
     return;
   };
-  //questionResultEl.removeAttribute("class");
+
   document.getElementById('timer-title').textContent = "Time Left:";
   intervalId = setInterval(updateTime, 1000);
   questionEl.textContent = questions[questionIndex].question;
@@ -159,9 +158,6 @@ function checkAnswer(event) {
   if (event.target.matches("li")) {
     var answer = event.target.textContent;
     if (answer === questions[questionIndex].answer) {
-      // questionResultEl.setAttribute("id", "correct")
-      // questionResultEl.removeAttribute()
-      // questionResultEL.document.getElementById("correct").style.color = "green"
       questionResultEl.textContent = "Correct!";
       correctCount++;
     } else {
@@ -170,9 +166,6 @@ function checkAnswer(event) {
       timerEl.textContent = time;
     };
   };
-  // var endScreenElement = document.getElementById("end-game");
-  // endScreenElement.removeAttribute("class");
-
   setTimeout(nextQuestion, 2000);
 };
 
@@ -180,6 +173,3 @@ optionListEl.addEventListener("click", checkAnswer);
 
 startGame();
 
-// get high scores
-// sort high scores
-// for each loop over each score

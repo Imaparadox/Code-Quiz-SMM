@@ -82,10 +82,6 @@ header h1 {
     font-size: 20px;
 }
 
-/* #option-list{
-
-} */
-
 .question-options {
     background-color: purple;
     padding: 10px;
@@ -99,19 +95,7 @@ header h1 {
 .question-options:hover {
     background: #cc00ff;
     color: white;
-    /* border-radius: 20px; */
 }
-
-/* Come back to this one */
-/* #question-result {
-    background-color: purple;
-    font-size: 25px;
-    color: white;
-    border-radius: 15px;
-    margin: 0 auto;
-    border: black solid; 
-    padding: 10px;
-} */
 
 .correct {
     background-color: purple;
@@ -119,18 +103,8 @@ header h1 {
     color: white;
     border-radius: 15px;
     margin: 0 auto;
-    /* border: black solid; 
-    padding: 10px; */
 }
 
-/* #end-game {
-    width: 70%;
-    margin: 30px auto;
-    display: flex;
-    flex-wrap: column;
-    justify-content: space-between;
-    align-items: center;
-} */
 
 .button-container, .link-container{
     text-align: center;
@@ -143,11 +117,6 @@ header h1 {
    font-weight: bold;
    padding: 15px;
 }
-
-/* #high-score-number {
-
-
-} */
 
 .initials-text-box {
     padding: 10px;
@@ -178,7 +147,6 @@ header h1 {
 .high-scores-link {
     text-decoration: none;
     background-color: purple;
-    /* padding: 10px 10px; */
     padding: 13px;
     font-size: 20px;
     color: white;
@@ -191,7 +159,3 @@ header h1 {
 .hide {
     display: none;
 }
-
-/* .invisible {
-    visibility: hidden;
-}  */
