@@ -41,7 +41,6 @@ var highScoreBtn = document.querySelector(".button-score");
 var questionIndex = 0;
 var correctCount = 0;
 
-//Change back to 60
 var time = 60;
 var intervalId;
 
@@ -132,6 +131,7 @@ function renderQuestion() {
   questionEl.textContent = questions[questionIndex].question;
   optionListEl.innerHTML = "";
   questionResultEl.innerHTML = "";
+
   var choices = questions[questionIndex].choices;
   var choicesLength = choices.length;
 
